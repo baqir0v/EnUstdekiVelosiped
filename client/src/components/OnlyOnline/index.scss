@@ -1,0 +1,71 @@
+#onlyonline{
+    background-image: url("https://topbike-store-demo.myshopify.com/cdn/shop/files/countdown-v1.jpg?v=1613575291");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 50px;
+    .onlyonlinebox{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        h3{
+            color: #ed1f1f;
+            font-size: 40px;
+        }
+        p{
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+        h4{
+            padding-top: 20px;
+            font-size: 20px;
+            text-transform: uppercase;
+            color: #ff0000;
+        }
+        button{
+            background-color: black;
+            border: none;
+            color: white;
+            margin-top: 30px;
+            position: relative;
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            padding: 15px 40px;
+            font-size: 14px;
+            border-radius: 0;
+            transition: all .3s ease 0s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        button:hover{
+            background-color: #ff0000;
+            cursor: pointer;
+        }
+        .time{
+            display: flex;
+            gap: 20px;
+            .timecard{
+                background-color: white;
+                width: 120px;
+                height: 120px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 16px;
+                span{
+                    color: #ed1f1f;
+                    font-size: 36px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

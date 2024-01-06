@@ -1,0 +1,121 @@
+#search{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 40vh;
+    .searchbox{
+        width: 60%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+        h3{
+            font-size: 40px;
+        }
+        input{
+            height: 50px;
+            outline: none;
+            width: 100%;
+            background-color: #fff;
+            color: #000;
+            border: none;
+            border-bottom: 2px solid #e8e8e8;
+            line-height: 42px;
+        }
+    }
+}
+#header{
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    position: relative;
+    #customslider{
+        padding-left: 100px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        height: 70vh;
+        .swipearrow1{
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50px;
+            background-color: transparent;
+            border: none;
+            outline: navajowhite;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .swipearrow2{
+            position: absolute;
+            top: 50%;
+            transform: translate(-0%, -50%);
+            right: 50px;
+            background-color: transparent;
+            border: none;
+            outline: navajowhite;
+            color: white;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .slidertext{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            h3{
+                font-size: 55px;
+            }
+            p{
+                font-size: 20px;
+                font-weight: 200;
+            }
+            button{
+                background-color: transparent;
+                color: white;
+                border: 1px solid white;
+                width: 120px;
+                height: 40px;
+                cursor: pointer;
+                transition: 0.5s;
+            }
+            button:hover{
+                background: #ffab00;
+                border: none;
+                transition: 0.5s;
+            }
+        }
+
+        .btns{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            top: 90%;
+            display: flex;
+            gap: 15px;
+            button{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+}   
+.dnone{
+    display: none !important;
+}
