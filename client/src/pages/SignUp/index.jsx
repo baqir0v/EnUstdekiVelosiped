@@ -1,38 +1,61 @@
-import React, { useState } from 'react'
-import axios from "axios"
+import React from 'react';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
 import "./index.scss"
-import { Link } from 'react-router-dom'
 
-const SignUp = () => {
-    const [username, setUsername] = useState("")
-    const [email, setemail] = useState("")
-    const [password, setpassword] = useState("")
-    const handleRegister = async () => {
-        const res = await axios.post("http://localhost:8000/api/user/register",
-            {
-                "username": username,
-                "email": email,
-                "password": password
-            }
-        )
-        setUsername("")
-        setemail("")
-        setpassword("")
-    }
-
+export const SignupForm = () => {
     return (
         <>
-            <div>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Username' />
-                <input type="text" value={email} onChange={(e) => setemail(e.target.value)} placeholder='Email' />
-                <input type="text" value={password} onChange={(e) => setpassword(e.target.value)} placeholder='Password' />
-                <button onClick={() => {
-                    handleRegister()
-                }}>Sign Up</button>
-                <Link to={"/login"}>Login</Link>
-            </div>
-        </>
-    )
-}
+            <Formik
+                initialValues={{ firstName: '', lastName: '', email: '' }}
+                validationSchema={Yup.object({
+                    firstName: Yup.string()
+                        .max(15, 'Must be 15 characters or less')
+                        .required('Required'),
+                    lastName: Yup.string()
+                        .max(20, 'Must be 20 characters or less')
+                        .required('Required'),
+                    email: Yup.string().email('Invalid email address').required('Required'),
+                })}
+                onSubmit={(values, { setSubmitting }) => {
+                    setTimeout(() => {
+                        alert(JSON.stringify(values, null, 2));
+                        setSubmitting(false);
+                    }, 400);
+                }}
+            >
+                {formik => (
+                    <form onSubmit={formik.handleSubmit}>
+                        <label htmlFor="firstName">First Name</label>
+                        <input
+                            id="firstName"
+                            type="text"
+                            {...formik.getFieldProps('firstName')}
+                        />
+                        {formik.touched.firstName && formik.errors.firstName ? (
+                            <div>{formik.errors.firstName}</div>
+                        ) : null}
 
-export default SignUp
+                        <label htmlFor="lastName">Last Name</label>
+                        <input
+                            id="lastName"
+                            type="text"
+                            {...formik.getFieldProps('lastName')}
+                        />
+                        {formik.touched.lastName && formik.errors.lastName ? (
+                            <div>{formik.errors.lastName}</div>
+                        ) : null}
+
+                        <label htmlFor="email">Email Address</label>
+                        <input id="email" type="email" {...formik.getFieldProps('email')} />
+                        {formik.touched.email && formik.errors.email ? (
+                            <div>{formik.errors.email}</div>
+                        ) : null}
+
+                        <button type="submit">Submit</button>
+                    </form>
+                )}
+            </Formik>
+        </>
+    );
+};

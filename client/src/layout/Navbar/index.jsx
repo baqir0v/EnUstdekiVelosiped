@@ -47,10 +47,10 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navright">
-                    <FaMagnifyingGlass onClick={()=>handleSearchOpen()} />
-                    <FaRegUser />
-                    <FaRegHeart />
-                    <AiOutlineShopping />
+                    <span><FaMagnifyingGlass onClick={()=>handleSearchOpen()} /></span>
+                    <span><FaRegUser /></span>
+                    <span><FaRegHeart /></span>
+                    <span><AiOutlineShopping /></span>
                 </div>
             </div>
         </nav>

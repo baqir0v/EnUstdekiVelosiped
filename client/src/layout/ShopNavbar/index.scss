@@ -1,0 +1,69 @@
+#shopnav {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .navbox {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        height: 100%;
+
+        .navleft {
+            width: 33%;
+
+            ul {
+                display: flex;
+                gap: 20px;
+
+                li {
+                    a {
+                        color: black;
+                        font-size: 22px;
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        .navmid {
+            width: 33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 120px;
+
+            }
+        }
+
+        .navright {
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            width: 33%;
+            gap: 15px;
+
+            .rightbox {
+                display: flex;
+                justify-content: space-between;
+                width: 30%;
+
+                span {
+                    width: 20px;
+                    height: 20px;
+
+                    // color: white;
+                    svg {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
