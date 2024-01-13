@@ -16,7 +16,7 @@ function ShopNavbar() {
                         <li><Link to={"/shop"}>Shop</Link></li>
                         <li><Link>Featured</Link></li>
                         <li><Link>Pages</Link></li>
-                        <li><Link>Blogs</Link></li>
+                        <li><Link to={"/add"}>Add</Link></li>
                         <li><Link to={"/signup"}>Signup</Link></li>
                     </ul>
                 </div>

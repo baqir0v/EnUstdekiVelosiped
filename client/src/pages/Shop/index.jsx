@@ -2,6 +2,8 @@ import React from 'react'
 import "./index.scss"
 import ShopNavbar from '../../layout/ShopNavbar'
 import { Link } from 'react-router-dom'
+import ShopProducts from '../../components/ShopProudcts'
+import Footer from '../../layout/Footer'
 
 const ShopPage = () => {
   return (
@@ -24,6 +26,8 @@ const ShopPage = () => {
           </div>
         </div>
       </section>
+      <ShopProducts/>
+      <Footer/>
     </div>
   )
 }

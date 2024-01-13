@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./index.scss"
 import { Link } from "react-router-dom"
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShopping } from "react-icons/ai";
+import { SearchContext } from '../../Context/searchContext';
 
 const Navbar = () => {
     const [scrolling, setScrolling] = useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false)
+    const {handleSearch} = useContext(SearchContext)
 
-    const handleSearchOpen = ()=>{
-        setIsSearchOpen(!isSearchOpen)
-    }
+
 
     useEffect(() => {
         const handleScroll = () => {
@@ -42,12 +42,12 @@ const Navbar = () => {
                         <li><Link to={"/shop"}>Shop</Link></li>
                         <li><Link>Featured</Link></li>
                         <li><Link>Pages</Link></li>
-                        <li><Link>Blogs</Link></li> 
+                        <li><Link to={"/add"}>Add</Link></li> 
                         <li><Link to={"/signup"}>Signup</Link></li> 
                     </ul>
                 </div>
                 <div className="navright">
-                    <span><FaMagnifyingGlass onClick={()=>handleSearchOpen()} /></span>
+                    <span><FaMagnifyingGlass onClick={handleSearch} /></span>
                     <span><FaRegUser /></span>
                     <span><FaRegHeart /></span>
                     <span><AiOutlineShopping /></span>
