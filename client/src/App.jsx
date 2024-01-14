@@ -5,6 +5,7 @@ import { SignupForm } from "./pages/SignUp"
 import Login from "./pages/Login"
 import AddPage from "./pages/AddPage"
 import DetailPage from "./pages/Details"
+import WishlistPage from "./pages/WishlistPage"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/signup" element={<SignupForm />} />
         <Route path="/login" element={<Login />} />
         <Route path="/add" element={<AddPage />} />
+        <Route path="/wishlist" element={<WishlistPage />} />
         <Route path="/:id" element={<DetailPage />} />
       </Routes>
     </>

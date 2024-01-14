@@ -4,10 +4,12 @@ import ShopNavbar from '../../layout/ShopNavbar'
 import { Link } from 'react-router-dom'
 import ShopProducts from '../../components/ShopProudcts'
 import Footer from '../../layout/Footer'
+import Search from '../../components/Search'
 
 const ShopPage = () => {
   return (
     <div>
+      <Search/>
       <ShopNavbar />
       <section id='doubleimages'>
         <div className='img1'>

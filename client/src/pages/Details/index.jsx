@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ShopNavbar from '../../layout/ShopNavbar'
 import Footer from '../../layout/Footer'
+import Search from '../../components/Search'
 
 const DetailPage = () => {
     const [detail, setDetail] = useState([])
@@ -20,6 +21,7 @@ const DetailPage = () => {
     return (
         <>
             <div>
+                <Search/>
                 <ShopNavbar/>
                 {detail ? <>
                     <div>

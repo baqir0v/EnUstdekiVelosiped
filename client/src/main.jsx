@@ -4,11 +4,17 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import SearchProvider from './Context/searchContext.jsx'
+import WishlistProvider from './Context/wishlistContext.jsx'
+import BasketProvider from './Context/basketContext.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
-    <SearchProvider>
-      <App />
-    </SearchProvider>
+    <BasketProvider>
+      <WishlistProvider>
+        <SearchProvider>
+          <App />
+        </SearchProvider>
+      </WishlistProvider>
+    </BasketProvider>
   </BrowserRouter>,
 )

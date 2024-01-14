@@ -49,7 +49,7 @@ const Navbar = () => {
                 <div className="navright">
                     <span><FaMagnifyingGlass onClick={handleSearch} /></span>
                     <span><FaRegUser /></span>
-                    <span><FaRegHeart /></span>
+                    <span><Link to={"/wishlist"}><FaRegHeart /></Link></span>
                     <span><AiOutlineShopping /></span>
                 </div>
             </div>

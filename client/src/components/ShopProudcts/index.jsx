@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./index.scss"
 import { FaFilter } from "react-icons/fa";
 import { BsGrid3X3GapFill } from "react-icons/bs";
@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShopping } from "react-icons/ai";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
+import { wishlistContext } from '../../Context/wishlistContext';
 
 const ShopProducts = () => {
     const [isGridOpen, setIsGridOpen] = useState(false)
@@ -15,6 +16,7 @@ const ShopProducts = () => {
     const [grid4, setGrid4] = useState(4)
     const [grid5, setGrid5] = useState(5)
     const [customGrid, setCustomGrid] = useState(4)
+    const {wishlist,addToWishlist} = useContext(wishlistContext)
 
     const handleGrid2 = () => {
         setCustomGrid(grid2)
@@ -77,7 +79,7 @@ const ShopProducts = () => {
                             <li className={item.discount ? "prices" : ""}><span className='newprice'>{item.discount ? `$${item.price - item.discount}` : ""}</span><span className={item.discount ? "oldprice" : "newprice"}>${item.price}</span></li>
                             {item.sale ? <li className='sale'>{item.sale}</li> : ""}
                             <div className='producticons'>
-                                <span className='heart'><FaRegHeart /></span>
+                                <span className='heart' onClick={()=>addToWishlist(item)}><FaRegHeart /></span>
                                 <span className='bag'><AiOutlineShopping /></span>
                                 <span className='glass'><Link to={`/${item._id}`}><FaMagnifyingGlass /></Link></span>
                             </div>

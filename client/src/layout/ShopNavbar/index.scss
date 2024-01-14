@@ -56,7 +56,10 @@
                 span {
                     width: 20px;
                     height: 20px;
-
+                    cursor: pointer;
+                    a{
+                        color: black;
+                    }
                     // color: white;
                     svg {
                         width: 100%;

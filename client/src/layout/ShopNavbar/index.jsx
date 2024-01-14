@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import "./index.scss"
 import { Link } from 'react-router-dom'
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { AiOutlineShopping } from "react-icons/ai";
+import { SearchContext } from '../../Context/searchContext';
 
 function ShopNavbar() {
+  const { handleSearch } = useContext(SearchContext)
     return (
         <nav id='shopnav'>
             <div className="navbox">
@@ -25,9 +27,9 @@ function ShopNavbar() {
                 </div>
                 <div className="navright">
                     <div className="rightbox">
-                        <span><FaMagnifyingGlass onClick={() => handleSearchOpen()} /></span>
+                        <span><FaMagnifyingGlass onClick={() => handleSearch()} /></span>
                         <span><FaRegUser /></span>
-                        <span><FaRegHeart /></span>
+                        <span><Link to={"/wishlist"}><FaRegHeart /></Link></span>
                         <span><AiOutlineShopping /></span>
                     </div>
                 </div>

@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import "./index.scss"
+import Search from '../../components/Search';
+import ShopNavbar from '../../layout/ShopNavbar';
+import Footer from '../../layout/Footer';
+import axios from 'axios';
 
 export const SignupForm = () => {
+    const [username, setUsername] = useState("")
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+
+    const handleRegister = async () => {
+        const resp = await axios.post("http://localhost:8000/api/user/", {
+            "username": username,
+            "password": password,
+            "email": email
+        })
+    }
+
     return (
-        <>
+        <div className='formikyup'>
+            <Search />
+            <ShopNavbar />
             <Formik
-                initialValues={{ firstName: '', lastName: '', email: '' }}
+                initialValues={{ username: '', password: '', email: '' }}
                 validationSchema={Yup.object({
                     firstName: Yup.string()
                         .max(15, 'Must be 15 characters or less')
@@ -31,31 +49,39 @@ export const SignupForm = () => {
                             id="firstName"
                             type="text"
                             {...formik.getFieldProps('firstName')}
+                            onChange={(e) => setUsername(e.target.value)}
                         />
                         {formik.touched.firstName && formik.errors.firstName ? (
                             <div>{formik.errors.firstName}</div>
                         ) : null}
 
-                        <label htmlFor="lastName">Last Name</label>
+                        <label htmlFor="lastName">Password</label>
                         <input
                             id="lastName"
-                            type="text"
+                            type="password"
                             {...formik.getFieldProps('lastName')}
+                            onChange={(e) => setPassword(e.target.value)}
                         />
                         {formik.touched.lastName && formik.errors.lastName ? (
                             <div>{formik.errors.lastName}</div>
                         ) : null}
 
                         <label htmlFor="email">Email Address</label>
-                        <input id="email" type="email" {...formik.getFieldProps('email')} />
+                        <input
+                            id="email"
+                            type="email"
+                            {...formik.getFieldProps('email')}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
                         {formik.touched.email && formik.errors.email ? (
                             <div>{formik.errors.email}</div>
                         ) : null}
 
-                        <button type="submit">Submit</button>
+                        <button type="submit" onClick={() => handleRegister()}>Submit</button>
                     </form>
                 )}
             </Formik>
-        </>
+            <Footer />
+        </div>
     );
 };

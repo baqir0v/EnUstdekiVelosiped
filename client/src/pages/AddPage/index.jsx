@@ -3,6 +3,7 @@ import axios from 'axios'
 import "./index.scss"
 import ShopNavbar from '../../layout/ShopNavbar'
 import Footer from '../../layout/Footer'
+import Search from '../../components/Search'
 
 const AddPage = () => {
     const [title, setTitle] = useState("")
@@ -42,6 +43,7 @@ const AddPage = () => {
     }
     return (
         <div className='addpage'>
+            <Search/>
             <ShopNavbar />
             <div className='addform'>
                 <h1>Add Product</h1>

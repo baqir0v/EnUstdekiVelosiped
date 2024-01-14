@@ -1,11 +1,20 @@
 import React, { useContext } from 'react'
 import "./index.scss"
 import { SearchContext } from '../../Context/searchContext'
- const Search = () => {
-    const {search} = useContext(SearchContext)
+import { TiDeleteOutline } from "react-icons/ti";
+
+const Search = () => {
+  const { search, handleSearch } = useContext(SearchContext)
   return (
-    <section className={search ? "Eli" : "dnone"}>
-        saolam
+    <section className={search ? "search" : "dnone"}>
+      <div className="searchtop">
+        <span className='x' onClick={handleSearch}><TiDeleteOutline /></span>
+        <h3>Start typing and hit Enter</h3>
+        <input type="text" />
+      </div>
+      <div className="searchbottom">
+
+      </div>
     </section>
   )
 }

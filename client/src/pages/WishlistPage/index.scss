@@ -1,0 +1,43 @@
+.wishlist {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 80px 0px;
+    gap: 20px;
+    position: relative;
+
+    .emptywishlist {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        a:hover{
+            color: #ffab00;
+            cursor: pointer;
+        }
+        a{
+            color: black;
+        }
+    }
+
+
+    ul {
+        padding: 10px 0px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        li {
+            text-align: center;
+
+            img {
+                width: 250px;
+            }
+
+            span {
+                cursor: pointer;
+            }
+        }
+    }
+}
